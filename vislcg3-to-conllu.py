@@ -189,7 +189,12 @@ def trykk(buffer, tokcount, charcount, t): #{
 			lem = rbase.findall(llinia)[0];	
 			categs = rcateg.findall(llinia);	
 			mor = rparent.findall(llinia)[0];
-			etiqueta = rfunc.findall(llinia)[0].strip();
+			etiqueta = rfunc.findall(llinia)
+			if not etiqueta:  # {
+				etiqueta = 'X';
+			else:  # {
+				etiqueta = etiqueta[0].strip();
+			# }
 			misc = '';
 #			if len(t) > charcount and newt[charcount-1] != ' ': #{
 #				misc = misc + 'SpaceAfter=No|';
